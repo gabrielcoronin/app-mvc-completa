@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AspMvcBasica.Models
+namespace DevIO.Business.Models
 {
     public class Produto : Entity
     {
