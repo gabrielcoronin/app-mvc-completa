@@ -14,8 +14,8 @@ namespace DevIO.App.Extensions
             try
             {
                 var moeda = Convert.ToDecimal(value, new CultureInfo("pt-BR"));
-            }
-            catch (Exception)
+            }           
+            catch (Exception)     
             {
                 return new ValidationResult("Moeda em formato inválido");
             }
@@ -31,23 +31,22 @@ namespace DevIO.App.Extensions
         {
 
         }
-
         public override void AddValidation(ClientModelValidationContext context)
         {
-            if (context == null) throw new ArgumentNullException(nameof(context));
-            
+            if (context == null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
+
             MergeAttribute(context.Attributes, "data-val", "true");
             MergeAttribute(context.Attributes, "data-val-moeda", GetErrorMessage(context));
             MergeAttribute(context.Attributes, "data-val-number", GetErrorMessage(context));
         }
-
         public override string GetErrorMessage(ModelValidationContextBase validationContext)
         {
             return "Moeda em formato inválido";
         }
-
     }
-
     public class MoedaValidationAttributeAdapterProvider : IValidationAttributeAdapterProvider
     {
         private readonly IValidationAttributeAdapterProvider _baseProvider = new ValidationAttributeAdapterProvider();

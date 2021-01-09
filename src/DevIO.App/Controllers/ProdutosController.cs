@@ -10,7 +10,6 @@ using DevIO.Business.Intefaces;
 using DevIO.Business.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
-using DevIO.Business.Interfaces;
 
 namespace DevIO.App.Controllers
 {
@@ -22,9 +21,9 @@ namespace DevIO.App.Controllers
         private readonly IProdutoService _produtoService;
         private readonly IMapper _mapper;
 
-        public ProdutosController(IProdutoRepository produtoRepository,
-                                  IFornecedorRepository fornecedorRepository,
-                                  IMapper mapper,
+        public ProdutosController(IProdutoRepository produtoRepository, 
+                                  IFornecedorRepository fornecedorRepository, 
+                                  IMapper mapper, 
                                   IProdutoService produtoService,
                                   INotificador notificador) : base(notificador)
         {
@@ -55,7 +54,7 @@ namespace DevIO.App.Controllers
             return View(produtoViewModel);
         }
 
-        [ClaimsAuthorize("Produto", "Adicionar")]
+        [ClaimsAuthorize("Produto","Adicionar")]
         [Route("novo-produto")]
         public async Task<IActionResult> Create()
         {

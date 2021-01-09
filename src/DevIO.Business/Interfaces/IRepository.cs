@@ -1,10 +1,10 @@
-﻿using DevIO.Business.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using DevIO.Business.Models;
 
-namespace DevIO.Business.Interfaces
+namespace DevIO.Business.Intefaces
 {
     public interface IRepository<TEntity> : IDisposable where TEntity : Entity
     {

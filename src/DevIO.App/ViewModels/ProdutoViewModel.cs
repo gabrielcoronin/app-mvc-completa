@@ -1,10 +1,10 @@
-﻿using DevIO.App.Extensions;
-using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using DevIO.App.Extensions;
+using DevIO.Business.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace DevIO.App.ViewModels
 {
@@ -28,6 +28,7 @@ namespace DevIO.App.ViewModels
 
         [DisplayName("Imagem do Produto")]
         public IFormFile ImagemUpload { get; set; }
+
         public string Imagem { get; set; }
 
         [Moeda]
@@ -41,7 +42,7 @@ namespace DevIO.App.ViewModels
         public bool Ativo { get; set; }
 
         public FornecedorViewModel Fornecedor { get; set; }
-        public IEnumerable<FornecedorViewModel> Fornecedores { get; set; }
 
+        public IEnumerable<FornecedorViewModel> Fornecedores { get; set; }
     }
 }

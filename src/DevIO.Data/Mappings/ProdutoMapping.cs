@@ -15,12 +15,12 @@ namespace DevIO.Data.Mappings
                 .HasColumnType("varchar(200)");
 
             builder.Property(p => p.Descricao)
-               .IsRequired()
-               .HasColumnType("varchar(1000)");
+                .IsRequired()
+                .HasColumnType("varchar(1000)");
 
             builder.Property(p => p.Imagem)
-               .IsRequired()
-               .HasColumnType("varchar(100)");
+                .IsRequired()
+                .HasColumnType("varchar(100)");
 
             builder.ToTable("Produtos");
         }

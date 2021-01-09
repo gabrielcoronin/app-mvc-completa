@@ -8,7 +8,6 @@ using DevIO.App.ViewModels;
 using DevIO.Business.Intefaces;
 using DevIO.Business.Models;
 using Microsoft.AspNetCore.Authorization;
-using DevIO.Business.Interfaces;
 
 namespace DevIO.App.Controllers
 {
@@ -19,7 +18,7 @@ namespace DevIO.App.Controllers
         private readonly IFornecedorService _fornecedorService;
         private readonly IMapper _mapper;
 
-        public FornecedoresController(IFornecedorRepository fornecedorRepository,
+        public FornecedoresController(IFornecedorRepository fornecedorRepository, 
                                       IMapper mapper,
                                       IFornecedorService fornecedorService,
                                       INotificador notificador) : base(notificador)

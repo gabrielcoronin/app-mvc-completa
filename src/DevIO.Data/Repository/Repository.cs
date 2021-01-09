@@ -1,12 +1,12 @@
-﻿using DevIO.Business.Interfaces;
-using DevIO.Business.Models;
-using DevIO.Data.Context;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using DevIO.Business.Intefaces;
+using DevIO.Business.Models;
+using DevIO.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace DevIO.Data.Repository
 {
@@ -15,13 +15,13 @@ namespace DevIO.Data.Repository
         protected readonly MeuDbContext Db;
         protected readonly DbSet<TEntity> DbSet;
 
-        public Repository(MeuDbContext db)
+        protected Repository(MeuDbContext db)
         {
             Db = db;
             DbSet = db.Set<TEntity>();
         }
 
-        public virtual async Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate)
+        public async Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate)
         {
             return await DbSet.AsNoTracking().Where(predicate).ToListAsync();
         }
